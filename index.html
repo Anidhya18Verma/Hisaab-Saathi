@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hisaab Saathi | Digital tax filing help for small businesses</title>
+  <meta name="description" content="Find out which GST, income tax and TDS filings your small business needs, what is due next, and which papers to keep ready.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2315203B'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23F2B31B' font-family='sans-serif'%3E%E2%82%B9%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* Hisaab Saathi v2: bold navy and indigo, marigold, teal and coral on ledger paper */
+:root {
+  --navy: #0B1437;
+  --indigo: #2432C8;
+  --ink: #15203B;
+  --ink-2: #47526F;
+  --paper: #F5F7FB;
+  --white: #FFFFFF;
+  --rule: #CBD5E8;
+  --gold: #FFC21A;
+  --gold-soft: #FFE9A8;
+  --teal: #0C8F78;
+  --teal-soft: #D4F3EA;
+  --coral: #FF6B57;
+  --coral-soft: #FFDAD4;
+  --red: #C2303A;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
+h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.1; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; }
+.on-navy :focus-visible { outline-color: var(--gold); }
+
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+.narrow { width: min(760px, 100% - 40px); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--gold); color: var(--navy); padding: 8px 14px; border-radius: 6px; z-index: 30; }
+.skip:focus { left: 8px; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; box-shadow: 0 2px 0 var(--gold); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 62px; flex-wrap: wrap; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.2rem; }
+.mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--gold); color: var(--navy); font-size: 1.15rem; transition: transform .25s ease; }
+.brand:hover .mark { transform: rotate(-12deg) scale(1.08); }
+.site-header nav { display: flex; gap: 6px; flex-wrap: wrap; }
+.site-header nav a { text-decoration: none; font-weight: 600; font-size: .95rem; color: #CFD6F5; padding: 6px 12px; border-radius: 999px; transition: background-color .15s ease, color .15s ease; }
+.site-header nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.site-header nav a.active { background: var(--gold); color: var(--navy); }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; color: #fff; padding: clamp(44px, 7vw, 96px) 0 clamp(64px, 9vw, 120px); background:
+  radial-gradient(520px 360px at 85% 10%, rgba(255,194,26,.32), transparent 70%),
+  radial-gradient(520px 420px at 5% 95%, rgba(12,143,120,.5), transparent 70%),
+  linear-gradient(135deg, #0B1437 0%, #1B2A9E 62%, #2432C8 100%); }
+.shape { position: absolute; font-family: var(--display); font-weight: 800; color: rgba(255,255,255,.1); pointer-events: none; user-select: none; animation: drift 9s ease-in-out infinite; }
+.shape.s1 { font-size: 11rem; left: -1%; top: 8%; }
+.shape.s2 { font-size: 8rem; left: 44%; bottom: -3%; animation-delay: -3s; color: rgba(255,194,26,.16); }
+.shape.s3 { font-size: 6rem; right: 3%; top: 2%; animation-delay: -6s; }
+@keyframes drift { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-18px) rotate(4deg); } }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 5.8vw, 4.5rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.02; max-width: 12ch; }
+.lead { margin-top: 22px; font-size: 1.2rem; color: #DCE2FF; max-width: 52ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.fineprint { margin-top: 18px; font-size: .9rem; color: var(--ink-2); max-width: 60ch; }
+.on-navy .fineprint, .fineprint.on-dark { color: #B9C3DD; }
+
+.btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 10px; border: 2px solid transparent; transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
+.btn:hover { transform: translateY(-3px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: var(--gold); color: var(--navy); box-shadow: 0 5px 0 #C99400; }
+.btn-primary:hover { box-shadow: 0 8px 0 #C99400; }
+.btn-primary:active { box-shadow: 0 2px 0 #C99400; transform: translateY(3px); }
+.btn-ghost { border-color: rgba(255,255,255,.7); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.14); }
+
+/* Invoice slip */
+.invoice-wrap { perspective: 1100px; }
+.invoice { position: relative; background: var(--white); color: var(--ink); border: 2px solid var(--ink); border-radius: 8px; box-shadow: 10px 10px 0 var(--gold); padding-bottom: 6px; transition: transform .2s ease-out; transform-style: preserve-3d; will-change: transform; }
+.invoice::before { content: ""; position: absolute; top: 0; bottom: 0; left: 46px; width: 2px; background: rgba(194,48,58,.55); }
+.inv-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 18px 20px 12px 64px; border-bottom: 2px solid var(--ink); background: var(--teal-soft); border-radius: 6px 6px 0 0; }
+.inv-head h2 { font-size: 1.5rem; font-weight: 800; }
+.inv-date { font-size: .9rem; color: var(--ink-2); }
+.inv-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 50px; padding: 6px 20px 6px 64px; border-bottom: 1px solid var(--rule); font-size: 1rem; }
+.inv-row > span:first-child { color: var(--ink-2); }
+.inv-input { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; }
+.invoice input[type="number"], .invoice select { font: inherit; font-weight: 700; color: var(--ink); text-align: right; width: 130px; padding: 6px 8px; background: #F0F3FF; border: 2px solid var(--rule); border-radius: 8px; transition: border-color .15s ease, background-color .15s ease; }
+.invoice select { width: auto; min-width: 130px; text-align-last: right; cursor: pointer; }
+.invoice input[type="number"]:hover, .invoice select:hover { border-color: var(--indigo); }
+.invoice input[type="number"]:focus, .invoice select:focus { border-color: var(--indigo); background: #fff; }
+.invoice input[type="checkbox"] { width: 24px; height: 24px; accent-color: var(--teal); cursor: pointer; }
+.inv-out { border-top: 2px solid var(--ink); }
+.inv-out .inv-row b { font-weight: 700; }
+.inv-net { min-height: 72px; background: var(--gold-soft); border-bottom: 0; }
+.inv-net span { color: var(--ink); font-weight: 700; }
+.inv-net b { font-family: var(--display); font-size: 1.85rem; font-weight: 800; color: var(--navy); }
+.inv-note { padding: 14px 20px 14px 64px; font-size: .95rem; color: var(--ink-2); }
+
+/* Steps band */
+.steps { padding: clamp(48px, 7vw, 88px) 0; background: var(--white); }
+.step-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.step { position: relative; padding: 26px 24px 28px; border: 2px solid var(--ink); border-radius: 14px; transition: transform .2s ease, box-shadow .2s ease; }
+.step:nth-child(1) { background: var(--teal-soft); transform: rotate(-1.2deg); }
+.step:nth-child(2) { background: var(--gold-soft); transform: translateY(-10px); }
+.step:nth-child(3) { background: var(--coral-soft); transform: rotate(1.2deg); }
+.step:hover { transform: rotate(0) translateY(-6px); box-shadow: 6px 6px 0 var(--ink); }
+.step b { display: block; font-family: var(--display); font-weight: 800; font-size: 3.6rem; line-height: 1; color: var(--navy); }
+.step h3 { margin-top: 10px; font-size: 1.35rem; font-weight: 700; }
+.step p { margin-top: 8px; color: var(--ink-2); font-size: 1rem; }
+
+/* Sections */
+.section { padding: clamp(56px, 8vw, 104px) 0; }
+.section.sun { background: #FFF3CC; }
+.section.mint { background: #DDF5EE; }
+.section.sky { background: #E4E9FF; }
+.section.navy { background: var(--navy); color: #fff; }
+.section-head { margin-bottom: 36px; }
+.section-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 800; letter-spacing: -.015em; }
+.section-head p { margin-top: 10px; color: var(--ink-2); max-width: 56ch; }
+.navy .section-head p { color: #B9C3DD; }
+
+/* Finder */
+.finder-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.questions { display: grid; gap: 28px; }
+.questions fieldset { border: 0; margin: 0; padding: 0; }
+.questions legend { font-family: var(--display); font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips label { position: relative; }
+.chips input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.chips span { display: block; padding: 10px 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); font-size: .98rem; font-weight: 500; line-height: 1.35; transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease; }
+.chips label:hover span { transform: translateY(-2px); box-shadow: 0 4px 0 var(--ink); }
+.chips input:checked + span { background: var(--teal); border-color: var(--teal); color: #fff; box-shadow: 0 4px 0 #086552; transform: translateY(-2px); }
+.chips input:focus-visible + span { outline: 3px solid var(--indigo); outline-offset: 3px; }
+
+.results { position: sticky; top: 90px; }
+.ledger { position: relative; background: var(--white); border: 2px solid var(--ink); border-radius: 8px; min-height: 140px; box-shadow: 8px 8px 0 var(--ink); overflow: hidden; }
+.ledger::before { content: ""; position: absolute; top: 0; bottom: 0; left: 46px; width: 2px; background: rgba(194,48,58,.55); }
+.ledger-empty { padding: 22px 20px 22px 64px; color: var(--ink-2); }
+.entry { padding: 16px 20px 16px 64px; border-bottom: 1px solid var(--rule); transition: background-color .15s ease; animation: slideIn .35s ease both; }
+.entry:hover { background: #F1F4FF; }
+.entry:last-child { border-bottom: 0; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+.entry-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.entry h3 { font-size: 1.1rem; font-weight: 700; }
+.when { font-size: .88rem; color: var(--ink-2); font-weight: 600; }
+.entry p { margin-top: 6px; font-size: .98rem; color: var(--ink-2); }
+.tag { display: inline-block; margin-top: 10px; padding: 3px 12px; border-radius: 999px; font-size: .82rem; font-weight: 700; color: #fff; }
+.tag-gst { background: var(--teal); }
+.tag-tax { background: var(--indigo); }
+.tag-tds { background: var(--gold); color: var(--navy); }
+.tag-books { background: #5A6585; }
+.tag-alert { background: var(--coral); color: var(--navy); }
+
+/* Deadlines */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.pill { font: inherit; font-weight: 700; padding: 9px 20px; border-radius: 999px; border: 2px solid rgba(255,255,255,.5); background: transparent; color: #fff; cursor: pointer; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
+.pill:hover { border-color: #fff; transform: translateY(-2px); }
+.pill[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.due-list { list-style: none; margin: 0; padding: 0; }
+.due-item { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 16px 18px; margin-bottom: 12px; border: 1.5px solid rgba(255,255,255,.18); border-left-width: 8px; border-radius: 12px; background: rgba(255,255,255,.05); transition: transform .18s ease, background-color .18s ease; animation: slideIn .35s ease both; }
+.due-item:hover { transform: translateX(6px); background: rgba(255,255,255,.11); }
+.due-item[data-tag="GST"] { border-left-color: var(--teal); }
+.due-item[data-tag="TDS"] { border-left-color: var(--gold); }
+.due-item[data-tag="Income tax"] { border-left-color: #7E8BFF; }
+.due-date { text-align: center; line-height: 1; }
+.due-date b { display: block; font-family: var(--display); font-size: 2.3rem; font-weight: 800; }
+.due-date span { font-size: .9rem; color: #B9C3DD; }
+.due-title { font-weight: 700; font-size: 1.1rem; }
+.due-meta { margin-top: 3px; font-size: .94rem; color: #B9C3DD; }
+.due-count { font-weight: 700; font-size: .92rem; padding: 6px 14px; border-radius: 999px; border: 2px solid rgba(255,255,255,.45); white-space: nowrap; }
+.due-count.soon { background: var(--coral); border-color: var(--coral); color: var(--navy); animation: beat 1.8s ease-in-out infinite; }
+@keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+/* Documents */
+.progress-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; align-items: center; margin-bottom: 32px; }
+.bar-track { height: 18px; border-radius: 999px; border: 2px solid var(--ink); background: var(--white); overflow: hidden; }
+.bar-track span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width .35s ease; }
+#progress-text { font-weight: 700; }
+.stamp { grid-column: 1 / -1; justify-self: start; margin-top: 8px; padding: 6px 18px; border: 3px solid var(--red); border-radius: 6px; color: var(--red); background: rgba(255,255,255,.6); font-family: var(--display); font-weight: 800; font-size: 1.5rem; transform: rotate(-4deg); animation: stamp .4s cubic-bezier(.2,.9,.3,1.2); }
+.stamp[hidden] { display: none; }
+@keyframes stamp { from { transform: rotate(-4deg) scale(1.8); opacity: 0; } to { transform: rotate(-4deg) scale(1); opacity: 1; } }
+.doc-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px clamp(24px, 4vw, 48px); }
+.doc-groups fieldset { border: 2px solid var(--ink); border-radius: 14px; margin: 0; padding: 4px 18px 8px; background: var(--white); box-shadow: 5px 5px 0 var(--ink); }
+.doc-groups legend { font-family: var(--display); font-weight: 800; font-size: 1.15rem; padding: 2px 12px; margin-left: -4px; background: var(--gold); border: 2px solid var(--ink); border-radius: 999px; }
+.doc-groups label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 6px; margin: 0 -6px; border-bottom: 1px solid var(--rule); border-radius: 8px; cursor: pointer; transition: background-color .12s ease; }
+.doc-groups label:last-child { border-bottom: 0; }
+.doc-groups label:hover { background: #EEF1FF; }
+.doc-groups input { width: 24px; height: 24px; margin: 0; flex: none; accent-color: var(--teal); cursor: pointer; }
+.doc-groups input:checked + span { color: var(--ink-2); text-decoration: line-through; text-decoration-color: var(--teal); text-decoration-thickness: 2px; }
+
+/* FAQ */
+details { border: 2px solid var(--ink); border-radius: 12px; background: var(--white); margin-bottom: 12px; transition: box-shadow .15s ease, transform .15s ease; }
+details:hover { transform: translateY(-2px); box-shadow: 0 4px 0 var(--ink); }
+details[open] { box-shadow: 5px 5px 0 var(--indigo); transform: none; }
+summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; font-family: var(--display); font-weight: 700; font-size: 1.2rem; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); font-size: 1.3rem; line-height: 1; transition: transform .2s ease; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { padding: 0 20px 20px; color: var(--ink-2); max-width: 60ch; }
+
+/* Footer */
+.site-footer { background: var(--navy); color: #fff; padding: 44px 0; border-top: 4px solid var(--gold); }
+.site-footer p { max-width: 62ch; }
+
+/* Confetti */
+.confetti { position: fixed; top: -12px; width: 10px; height: 14px; z-index: 40; pointer-events: none; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(105vh) rotate(720deg); opacity: .9; } }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.step.reveal.in:nth-child(1) { transform: rotate(-1.2deg); }
+.step.reveal.in:nth-child(2) { transform: translateY(-10px); }
+.step.reveal.in:nth-child(3) { transform: rotate(1.2deg); }
+.step.reveal.in:hover { transform: rotate(0) translateY(-6px); }
+
+/* Responsive */
+@media (max-width: 880px) {
+  .hero-grid, .finder-grid, .doc-groups, .step-grid { grid-template-columns: minmax(0, 1fr); }
+  .results { position: static; }
+  .invoice { box-shadow: 6px 6px 0 var(--gold); }
+  .step:nth-child(n), .step.reveal.in:nth-child(n) { transform: none; }
+  .shape.s1 { font-size: 7rem; }
+}
+@media (max-width: 560px) {
+  .site-header nav { gap: 2px; }
+  .site-header nav a { padding: 5px 9px; font-size: .88rem; }
+  .due-item { grid-template-columns: 62px minmax(0, 1fr); gap: 14px; }
+  .due-count { grid-column: 2; justify-self: start; }
+  .inv-row, .inv-head, .inv-note, .entry, .ledger-empty { padding-left: 58px; padding-right: 14px; }
+  .invoice::before, .ledger::before { left: 40px; }
+  .invoice input[type="number"] { width: 108px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header on-navy">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Hisaab Saathi home">
+        <span class="mark" aria-hidden="true">₹</span>
+        <span>Hisaab Saathi</span>
+      </a>
+      <nav aria-label="Main">
+        <a href="#finder">Find my filings</a>
+        <a href="#deadlines">Due dates</a>
+        <a href="#documents">Paper to gather</a>
+        <a href="#faq">Questions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero on-navy" id="top">
+      <span class="shape s1" aria-hidden="true">₹</span>
+      <span class="shape s2" aria-hidden="true">GST</span>
+      <span class="shape s3" aria-hidden="true">%</span>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1>Your tax filing, in plain words.</h1>
+          <p class="lead">Hisaab Saathi helps small businesses in India work out which returns they need, what is due next, and which papers to keep ready. Start with the invoice on this page: change the numbers and watch the GST split.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#finder">Find my filings</a>
+            <a class="btn btn-ghost" href="#deadlines">See what is due next</a>
+          </div>
+          <p class="fineprint">A free guide, not a filing portal. You file on the official GST and Income Tax websites.</p>
+        </div>
+
+        <div class="invoice-wrap">
+        <form class="invoice" id="invoice" aria-labelledby="inv-title">
+          <div class="inv-head">
+            <h2 id="inv-title">Tax invoice</h2>
+            <span class="inv-date" id="inv-date"></span>
+          </div>
+
+          <label class="inv-row" for="amount">
+            <span>Price of your item</span>
+            <span class="inv-input"><span aria-hidden="true">₹</span><input id="amount" type="number" inputmode="decimal" min="0" step="any" value="25000"></span>
+          </label>
+
+          <label class="inv-row" for="rate">
+            <span>GST rate on it</span>
+            <select id="rate">
+              <option value="0">0%</option>
+              <option value="5">5%</option>
+              <option value="18" selected>18%</option>
+              <option value="40">40%</option>
+            </select>
+          </label>
+
+          <div class="inv-row">
+            <span id="incl-label">Price already includes GST</span>
+            <input type="checkbox" id="inclusive" aria-labelledby="incl-label">
+          </div>
+
+          <label class="inv-row" for="place">
+            <span>Your customer is</span>
+            <select id="place">
+              <option value="same">In your state</option>
+              <option value="other">In another state</option>
+            </select>
+          </label>
+
+          <label class="inv-row" for="itc">
+            <span>GST you paid on purchases</span>
+            <span class="inv-input"><span aria-hidden="true">₹</span><input id="itc" type="number" inputmode="decimal" min="0" step="any" value="1800"></span>
+          </label>
+
+          <div class="inv-out">
+            <div class="inv-row"><span>Value before tax</span><b id="o-taxable"></b></div>
+            <div id="o-split"></div>
+            <div class="inv-row"><span>Customer pays</span><b id="o-total"></b></div>
+            <div class="inv-row inv-net"><span id="o-net-label"></span><b id="o-net"></b></div>
+          </div>
+          <p class="inv-note" id="o-note" aria-live="polite"></p>
+        </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="steps" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="steps-title">Three steps from worried to filed</h2>
+        </div>
+        <div class="step-grid">
+          <div class="step">
+            <b>1</b>
+            <h3>Check what applies</h3>
+            <p>Answer four questions and get your own list of GST, income tax and TDS filings.</p>
+          </div>
+          <div class="step">
+            <b>2</b>
+            <h3>Gather your papers</h3>
+            <p>Tick off bills, bank statements and logins so nothing stops you halfway.</p>
+          </div>
+          <div class="step">
+            <b>3</b>
+            <h3>File before the date</h3>
+            <p>Watch the countdown, then file on the official GST or Income Tax portal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDER -->
+    <section class="section sun" id="finder" aria-labelledby="finder-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="finder-title">What do you need to file?</h2>
+          <p>Answer four questions about your business. Your list builds as you go.</p>
+        </div>
+
+        <div class="finder-grid">
+          <form class="questions" id="questions" aria-label="About your business">
+            <fieldset>
+              <legend>What does your business mostly do?</legend>
+              <div class="chips">
+                <label><input type="radio" name="type" value="goods"><span>Sells goods: shop, trading, making things</span></label>
+                <label><input type="radio" name="type" value="services"><span>Sells services: repairs, agency, food, travel</span></label>
+                <label><input type="radio" name="type" value="profession"><span>Professional: consultant, designer, doctor, architect</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>What is your yearly turnover?</legend>
+              <div class="chips">
+                <label><input type="radio" name="turnover" value="u20"><span>Under ₹20 lakh</span></label>
+                <label><input type="radio" name="turnover" value="u40"><span>₹20 to 40 lakh</span></label>
+                <label><input type="radio" name="turnover" value="u150"><span>₹40 lakh to 1.5 crore</span></label>
+                <label><input type="radio" name="turnover" value="u5cr"><span>₹1.5 to 5 crore</span></label>
+                <label><input type="radio" name="turnover" value="o5cr"><span>Over ₹5 crore</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Do you have a GST number?</legend>
+              <div class="chips">
+                <label><input type="radio" name="gst" value="yes"><span>Yes</span></label>
+                <label><input type="radio" name="gst" value="no"><span>No</span></label>
+                <label><input type="radio" name="gst" value="unsure"><span>Not sure</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Do you pay salaries, rent, or fees to contractors and professionals?</legend>
+              <div class="chips">
+                <label><input type="radio" name="staff" value="yes"><span>Yes</span></label>
+                <label><input type="radio" name="staff" value="no"><span>No</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="results" aria-live="polite">
+            <div class="ledger" id="ledger">
+              <p class="ledger-empty" id="ledger-empty">Your list will appear here.</p>
+              <div id="entries"></div>
+            </div>
+            <p class="fineprint" id="results-note" hidden>Thresholds and rates change from time to time. Confirm on gst.gov.in and incometax.gov.in, or ask a Chartered Accountant, before you file.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEADLINES -->
+    <section class="section navy on-navy" id="deadlines" aria-labelledby="due-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="due-title">What is due next</h2>
+          <p>The usual due dates, counted from today. Pick a type to narrow the list.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter by type">
+          <button type="button" class="pill" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="pill" data-filter="GST" aria-pressed="false">GST</button>
+          <button type="button" class="pill" data-filter="TDS" aria-pressed="false">TDS</button>
+          <button type="button" class="pill" data-filter="Income tax" aria-pressed="false">Income tax</button>
+        </div>
+
+        <ol class="due-list" id="due-list"></ol>
+        <p class="fineprint on-dark">The government sometimes extends a date. Check the notice on the portal before you rely on one. Monthly dates that fall on a Sunday or holiday are usually not moved, so file a day early.</p>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="section mint" id="documents" aria-labelledby="docs-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="docs-title">Paper to gather before you file</h2>
+          <p>Tick things off as you find them. Your ticks stay on this device.</p>
+        </div>
+
+        <div class="progress-row">
+          <div class="bar-track" role="progressbar" aria-labelledby="progress-text" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div>
+          <p id="progress-text">0 of 0 ready</p>
+          <p class="stamp" id="stamp" hidden>Ready to file</p>
+        </div>
+
+        <div class="doc-groups" id="doc-groups"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section sky" id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <h2 id="faq-title">Questions owners ask</h2>
+        </div>
+
+        <details>
+          <summary>Does this site file my returns?</summary>
+          <p>No. It tells you what applies to you and when, so you walk into the portal prepared. The actual filing happens on gst.gov.in for GST and incometax.gov.in for income tax.</p>
+        </details>
+        <details>
+          <summary>Do I still need a Chartered Accountant?</summary>
+          <p>Often not for a small, simple business. A CA is worth the fee when your turnover crosses the audit limit, when you get a notice, or when you are unsure which return form fits you.</p>
+        </details>
+        <details>
+          <summary>What is input tax credit?</summary>
+          <p>When you buy for your business, the supplier charges you GST. You can subtract that GST from the GST you collect on your sales, so you pay only the difference. The invoice at the top of this page does that sum for you.</p>
+        </details>
+        <details>
+          <summary>Are UPI and card sales counted as turnover?</summary>
+          <p>Yes. Every rupee of sales counts, whether it arrives as cash, UPI, card or bank transfer. UPI records make your books easier to prove, so keep the monthly statements.</p>
+        </details>
+        <details>
+          <summary>What happens if I miss a due date?</summary>
+          <p>Late fees and interest apply, and the amounts depend on the form. Repeated GST delays can also block your next return or your input credit. File late rather than not at all, then set a reminder for the next date.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-navy">
+    <div class="wrap">
+      <p><strong>Hisaab Saathi</strong> is a community engagement project built to help small businesses understand digital tax filing.</p>
+      <p class="fineprint on-dark">General guidance only, not professional tax advice. © <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script>
+(() => {
+  'use strict';
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+  const inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const money = n => inr.format(Math.round(n * 100) / 100);
+  const pct = n => (Math.round(n * 100) / 100) + '%';
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Count a money value up or down to its new figure
+  function setMoney(el, target) {
+    const start = typeof el._v === 'number' ? el._v : target;
+    cancelAnimationFrame(el._raf);
+    if (reduce || start === target) { el._v = target; el.textContent = money(target); return; }
+    const t0 = performance.now();
+    const step = now => {
+      const k = Math.min(1, (now - t0) / 380);
+      el._v = start + (target - start) * (1 - Math.pow(1 - k, 3));
+      el.textContent = money(el._v);
+      if (k < 1) { el._raf = requestAnimationFrame(step); } else { el._v = target; el.textContent = money(target); }
+    };
+    el._raf = requestAnimationFrame(step);
+  }
+
+  /* ---------- 1. Invoice and GST calculator ---------- */
+  const f = {
+    amount: $('#amount'), rate: $('#rate'), incl: $('#inclusive'),
+    place: $('#place'), itc: $('#itc')
+  };
+
+  function calcInvoice() {
+    const amount = Math.max(0, parseFloat(f.amount.value) || 0);
+    const rate = parseFloat(f.rate.value) || 0;
+    const itc = Math.max(0, parseFloat(f.itc.value) || 0);
+    const inclusive = f.incl.checked;
+    const interstate = f.place.value === 'other';
+
+    const taxable = inclusive ? amount / (1 + rate / 100) : amount;
+    const gst = inclusive ? amount - taxable : (amount * rate) / 100;
+    const total = taxable + gst;
+    const net = gst - itc;
+
+    setMoney($('#o-taxable'), taxable);
+    setMoney($('#o-total'), total);
+
+    const split = $('#o-split');
+    split.textContent = '';
+    const addRow = (label, value) => {
+      const row = document.createElement('div');
+      row.className = 'inv-row';
+      const l = document.createElement('span');
+      l.textContent = label;
+      const v = document.createElement('b');
+      v.textContent = value;
+      row.append(l, v);
+      split.append(row);
+    };
+    if (interstate) {
+      addRow('IGST (' + pct(rate) + ')', money(gst));
+    } else {
+      addRow('CGST (' + pct(rate / 2) + ')', money(gst / 2));
+      addRow('SGST (' + pct(rate / 2) + ')', money(gst / 2));
+    }
+
+    const label = $('#o-net-label');
+    const netEl = $('#o-net');
+    const note = $('#o-note');
+    if (net >= 0) {
+      label.textContent = 'You pay the government';
+      setMoney(netEl, net);
+      note.textContent = 'Your customer pays ' + money(gst) + ' of GST. You already paid ' + money(itc) + ' on your own purchases, so you hand over only the difference.';
+    } else {
+      label.textContent = 'Credit carried forward';
+      setMoney(netEl, -net);
+      note.textContent = 'You paid more GST on purchases than you collected, so nothing is due this time. The extra ' + money(-net) + ' carries forward to your next return.';
+    }
+  }
+
+  Object.values(f).forEach(el => {
+    el.addEventListener('input', calcInvoice);
+    el.addEventListener('change', calcInvoice);
+  });
+  $('#inv-date').textContent = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  calcInvoice();
+
+  // Tilt the invoice slightly toward the pointer
+  const slip = $('#invoice');
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    slip.addEventListener('pointermove', e => {
+      const r = slip.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      slip.style.transform = 'rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 7) + 'deg)';
+    });
+    slip.addEventListener('pointerleave', () => { slip.style.transform = ''; });
+  }
+
+  /* ---------- 2. Filing finder ---------- */
+  const ORDER = ['u20', 'u40', 'u150', 'u5cr', 'o5cr'];
+  const TAGS = {
+    GST: 'tag-gst', 'Income tax': 'tag-tax', TDS: 'tag-tds', Books: 'tag-books', Heads: 'tag-alert'
+  };
+
+  function buildFilings(a) {
+    const idx = ORDER.indexOf(a.turnover);
+    const isGoods = a.type === 'goods';
+    const isPro = a.type === 'profession';
+    const mustRegister = idx >= (isGoods ? 2 : 1);
+    const out = [];
+
+    // GST
+    if (a.gst === 'yes') {
+      out.push({
+        tag: 'GST', title: 'GSTR-1 and GSTR-3B', when: 'Every month',
+        text: 'GSTR-1 lists your sales. GSTR-3B is the summary where you pay the tax. ' +
+          (idx <= 3 ? 'With turnover up to ₹5 crore you may choose the quarterly (QRMP) route: pay each month, file each quarter.' : 'Above ₹5 crore, monthly filing is the rule.')
+      });
+      if (isGoods && idx <= 2) {
+        out.push({
+          tag: 'GST', title: 'Composition scheme (your option)', when: 'Quarterly payment, yearly return',
+          text: 'Small sellers of goods can pay a low flat share of turnover and file simpler forms (CMP-08 and GSTR-4). The catch: you cannot claim input credit and cannot charge GST on your bills.'
+        });
+      }
+      out.push({
+        tag: 'GST', title: 'GSTR-9 annual return', when: 'Once a year',
+        text: idx >= 3 ? 'Likely required at your size. It sums up the whole year.' : 'Optional at your size, but many owners still file it to tidy the year.'
+      });
+    } else if (mustRegister) {
+      out.push({
+        tag: 'Heads', title: 'GST registration (likely required)', when: 'Do this first',
+        text: 'At your turnover you are usually over the limit: ₹40 lakh for goods, ₹20 lakh for services in most states. Selling across state lines or through online marketplaces can require it sooner. Register at gst.gov.in, then you file the returns above.'
+      });
+    } else {
+      out.push({
+        tag: 'GST', title: 'GST registration (optional for you)', when: 'Your choice',
+        text: 'You are under the usual limit, so GST is not compulsory. Registering voluntarily helps if you sell to other registered businesses who want to claim credit on your bills.'
+      });
+    }
+
+    // Income tax return
+    if (isPro) {
+      if (idx <= 1) {
+        out.push({
+          tag: 'Income tax', title: 'ITR-4 (presumptive, section 44ADA)', when: 'Once a year',
+          text: 'Professionals with receipts up to ₹50 lakh can declare 50% of receipts as profit and skip detailed books.'
+        });
+      } else if (idx === 2) {
+        out.push({
+          tag: 'Income tax', title: 'ITR-3 (or ITR-4 if within ₹50 lakh)', when: 'Once a year',
+          text: 'Above ₹50 lakh of receipts, you generally file ITR-3 with proper books of account.'
+        });
+      } else {
+        out.push({
+          tag: 'Income tax', title: 'ITR-3 with books of account', when: 'Once a year',
+          text: 'At this size a professional files ITR-3 with full books, and the books may need an audit.'
+        });
+      }
+    } else if (idx <= 3) {
+      out.push({
+        tag: 'Income tax', title: 'ITR-4 (presumptive, section 44AD)', when: 'Once a year',
+        text: 'Businesses with turnover up to ₹2 crore can declare 6% of digital receipts and 8% of cash receipts as profit, with no detailed books. Above ₹2 crore, or if you want to show lower profit, file ITR-3.'
+      });
+    } else {
+      out.push({
+        tag: 'Income tax', title: 'ITR-3 with books of account', when: 'Once a year',
+        text: 'Above the presumptive limit you maintain full books and file ITR-3.'
+      });
+    }
+
+    // Audit
+    if (idx >= 2) {
+      out.push({
+        tag: 'Income tax', title: 'Tax audit (may apply)', when: 'Report due before the return',
+        text: 'If turnover is above ₹1 crore (₹10 crore when almost all receipts and payments are digital), a Chartered Accountant must audit your books. Presumptive filers are usually exempt.'
+      });
+    }
+
+    // Advance tax
+    out.push({
+      tag: 'Income tax', title: 'Advance tax', when: 'Mid-June, Sept, Dec, March',
+      text: 'If your tax for the year will be ₹10,000 or more, you pay it in instalments instead of one lump sum. Presumptive filers can pay all of it by 15 March.'
+    });
+
+    // TDS
+    if (a.staff === 'yes') {
+      out.push({
+        tag: 'TDS', title: 'TDS deposit and TDS returns', when: '7th each month, returns quarterly',
+        text: 'When you pay salaries, rent or contractor and professional fees above set limits, you hold back a share as TDS, deposit it by the 7th of next month and file a quarterly TDS return. You need a TAN for this.'
+      });
+    } else {
+      out.push({
+        tag: 'TDS', title: 'No TDS filing for you', when: 'Nothing to do',
+        text: 'You pay no one who triggers TDS, so there is no TDS return. Revisit this if you hire staff or pay rent.'
+      });
+    }
+
+    // Books
+    out.push({
+      tag: 'Books', title: 'Keep sales and purchase records', when: 'All year',
+      text: 'Save every bill, bank statement and UPI report. They back up every return above and answer any notice.'
+    });
+
+    return out;
+  }
+
+  const form = $('#questions');
+  const entries = $('#entries');
+  const empty = $('#ledger-empty');
+  const note = $('#results-note');
+
+  function answers() {
+    const a = {};
+    ['type', 'turnover', 'gst', 'staff'].forEach(name => {
+      const el = form.querySelector('input[name="' + name + '"]:checked');
+      a[name] = el ? el.value : null;
+    });
+    return a;
+  }
+
+  function renderFinder() {
+    const a = answers();
+    const done = Object.values(a).filter(Boolean).length;
+    entries.textContent = '';
+    if (done < 4) {
+      empty.hidden = false;
+      empty.textContent = done === 0 ? 'Your list will appear here.' : done + ' of 4 answered. Keep going to see your list.';
+      note.hidden = true;
+      return;
+    }
+    empty.hidden = true;
+    note.hidden = false;
+    buildFilings(a).forEach((item, i) => {
+      const box = document.createElement('div');
+      box.className = 'entry';
+      box.style.animationDelay = (i * 70) + 'ms';
+      const top = document.createElement('div');
+      top.className = 'entry-top';
+      const h = document.createElement('h3');
+      h.textContent = item.title;
+      const w = document.createElement('span');
+      w.className = 'when';
+      w.textContent = item.when;
+      top.append(h, w);
+      const p = document.createElement('p');
+      p.textContent = item.text;
+      const t = document.createElement('span');
+      t.className = 'tag ' + (TAGS[item.tag] || '');
+      t.textContent = item.tag === 'Heads' ? 'Start here' : item.tag;
+      box.append(top, p, t);
+      entries.append(box);
+    });
+  }
+  form.addEventListener('change', renderFinder);
+  renderFinder();
+
+  /* ---------- 3. Due dates ---------- */
+  const RULES = [
+    { tag: 'TDS', title: 'Deposit last month’s TDS', who: 'If you deduct TDS', monthly: true, day: 7 },
+    { tag: 'GST', title: 'File GSTR-1 (sales details)', who: 'Registered, monthly filers', monthly: true, day: 11 },
+    { tag: 'GST', title: 'File GSTR-3B and pay GST', who: 'Registered, monthly filers', monthly: true, day: 20 },
+    { tag: 'GST', title: 'Pay CMP-08 (composition tax)', who: 'Composition scheme, each quarter', months: [0, 3, 6, 9], day: 18 },
+    { tag: 'Income tax', title: 'Advance tax instalment', who: 'If yearly tax is ₹10,000 or more', months: [2, 5, 8, 11], day: 15 },
+    { tag: 'TDS', title: 'File quarterly TDS return', who: 'If you deduct TDS', months: [0, 4, 6, 9], day: 31 },
+    { tag: 'Income tax', title: 'File income tax return (no audit)', who: 'Most small businesses and professionals', months: [6], day: 31 },
+    { tag: 'Income tax', title: 'Tax audit report', who: 'If your books need an audit', months: [8], day: 30 },
+    { tag: 'Income tax', title: 'File income tax return (audit cases)', who: 'If your books need an audit', months: [9], day: 31 },
+    { tag: 'GST', title: 'File GSTR-9 annual return', who: 'Registered businesses', months: [11], day: 31 },
+    { tag: 'GST', title: 'File GSTR-4 annual return', who: 'Composition scheme', months: [3], day: 30 }
+  ];
+
+  function nextDate(rule, today) {
+    const y = today.getFullYear();
+    if (rule.monthly) {
+      let d = new Date(y, today.getMonth(), rule.day);
+      if (d < today) d = new Date(y, today.getMonth() + 1, rule.day);
+      return d;
+    }
+    for (let yr = y; yr <= y + 1; yr++) {
+      for (const m of [...rule.months].sort((a, b) => a - b)) {
+        const d = new Date(yr, m, rule.day);
+        if (d >= today) return d;
+      }
+    }
+    return null;
+  }
+
+  function countLabel(days) {
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Tomorrow';
+    return 'In ' + days + ' days';
+  }
+
+  const dueList = $('#due-list');
+  let activeFilter = 'all';
+
+  function renderDue() {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const items = RULES
+      .filter(r => activeFilter === 'all' || r.tag === activeFilter)
+      .map(r => ({ r, date: nextDate(r, today) }))
+      .filter(x => x.date)
+      .sort((a, b) => a.date - b.date);
+
+    dueList.textContent = '';
+    items.forEach(({ r, date }, i) => {
+      const days = Math.round((date - today) / 86400000);
+      const li = document.createElement('li');
+      li.className = 'due-item';
+      li.dataset.tag = r.tag;
+      li.style.animationDelay = (i * 45) + 'ms';
+
+      const dd = document.createElement('div');
+      dd.className = 'due-date';
+      const b = document.createElement('b');
+      b.textContent = date.getDate();
+      const m = document.createElement('span');
+      m.textContent = date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+      dd.append(b, m);
+
+      const mid = document.createElement('div');
+      const t = document.createElement('div');
+      t.className = 'due-title';
+      t.textContent = r.title;
+      const meta = document.createElement('div');
+      meta.className = 'due-meta';
+      meta.textContent = r.tag + ' · ' + r.who;
+      mid.append(t, meta);
+
+      const c = document.createElement('span');
+      c.className = 'due-count' + (days <= 7 ? ' soon' : '');
+      c.textContent = countLabel(days);
+
+      li.append(dd, mid, c);
+      dueList.append(li);
+    });
+  }
+
+  $$('.pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeFilter = btn.dataset.filter;
+      $$('.pill').forEach(p => p.setAttribute('aria-pressed', String(p === btn)));
+      renderDue();
+    });
+  });
+  renderDue();
+
+  /* ---------- 4. Document checklist ---------- */
+  const DOCS = [
+    { group: 'Sales', items: ['Sales invoices for the period', 'Record of cash and UPI sales', 'Credit and debit notes you issued'] },
+    { group: 'Purchases and costs', items: ['Purchase bills with the supplier’s GSTIN', 'Receipts for rent, power, transport and repairs', 'Invoices for equipment you bought'] },
+    { group: 'Bank and payments', items: ['Bank statements for every business account', 'UPI, card and wallet settlement reports', 'Loan statements, if you have a loan'] },
+    { group: 'Logins and numbers', items: ['PAN of the business or owner', 'GST portal username and password', 'Aadhaar-linked mobile phone within reach', 'TAN, if you deduct TDS'] },
+    { group: 'People you pay', items: ['Salary register', 'List of contractors and professionals you paid', 'Rent agreement and rent paid'] }
+  ];
+  const KEY = 'hisaab-saathi-docs-v1';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { saved = {}; }
+
+  const groupsEl = $('#doc-groups');
+  let total = 0;
+  DOCS.forEach((g, gi) => {
+    const fs = document.createElement('fieldset');
+    const lg = document.createElement('legend');
+    lg.textContent = g.group;
+    fs.append(lg);
+    g.items.forEach((text, ii) => {
+      total++;
+      const id = gi + '-' + ii;
+      const label = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.dataset.id = id;
+      cb.checked = !!saved[id];
+      const span = document.createElement('span');
+      span.textContent = text;
+      label.append(cb, span);
+      fs.append(label);
+    });
+    groupsEl.append(fs);
+  });
+
+  function confetti() {
+    if (reduce) return;
+    const colors = ['#FFC21A', '#0C8F78', '#FF6B57', '#2432C8', '#FFFFFF'];
+    for (let i = 0; i < 70; i++) {
+      const s = document.createElement('span');
+      s.className = 'confetti';
+      s.style.left = (Math.random() * 100) + 'vw';
+      s.style.background = colors[i % colors.length];
+      s.style.animationDuration = (1.6 + Math.random() * 1.6) + 's';
+      s.style.animationDelay = (Math.random() * 0.4) + 's';
+      s.style.transform = 'rotate(' + Math.floor(Math.random() * 360) + 'deg)';
+      document.body.append(s);
+      setTimeout(() => s.remove(), 4000);
+    }
+  }
+
+  let wasComplete = false;
+  function updateProgress(fromUser) {
+    const boxes = $$('input[type="checkbox"]', groupsEl);
+    const done = boxes.filter(b => b.checked).length;
+    if (fromUser === true && done === total && !wasComplete) confetti();
+    wasComplete = done === total;
+    const share = total ? Math.round((done / total) * 100) : 0;
+    $('#progress-fill').style.width = share + '%';
+    $('#progress').setAttribute('aria-valuenow', String(share));
+    $('#progress-text').textContent = done + ' of ' + total + ' ready';
+    $('#stamp').hidden = done !== total;
+    const state = {};
+    boxes.forEach(b => { if (b.checked) state[b.dataset.id] = true; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+  }
+  groupsEl.addEventListener('change', () => updateProgress(true));
+  updateProgress(false);
+
+  /* ---------- 5. Nav highlight and reveal on scroll ---------- */
+  const links = $$('.site-header nav a');
+  const targets = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(l => l.classList.remove('active'));
+        const l = targets.get(e.target.id);
+        if (l) l.classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    [...targets.keys(), 'top'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+
+    const reveal = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+        setTimeout(() => { e.target.style.transitionDelay = ''; }, 1000);
+      });
+    }, { threshold: 0.2 });
+    $$('.step').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * 120) + 'ms';
+      reveal.observe(el);
+    });
+  }
+
+  /* ---------- Footer ---------- */
+  $('#year').textContent = new Date().getFullYear();
+})();
+
+</script>
+</body>
+</html>
